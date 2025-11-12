@@ -1,0 +1,121 @@
+/* Fundo e reset */
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+
+/* ====== Coração animado ====== */
+.heart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #000;
+}
+
+.heart {
+    width: 120px;
+    height: 120px;
+    background-color: #ff4fa3;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: pulse 1.4s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 120px;
+    height: 120px;
+    background-color: #ff4fa3;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    left: 60px;
+    top: 0;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) rotate(-45deg);
+    }
+
+    50% {
+        transform: scale(1.15) rotate(-45deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+/* ====== Cartão do convite ====== */
+.convite-card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    width: 85%;
+    max-width: 400px;
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.convite-card.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hidden {
+    display: none;
+}
+
+/* ====== Botões ====== */
+.botoes {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    font-weight: 500;
+}
+
+.sim {
+    background-color: #ff4fa3;
+    color: white;
+}
+
+.remarcar {
+    background-color: #444;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
